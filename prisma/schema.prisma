@@ -68,15 +68,14 @@ model Recipe {
   cookTime     String        @map("cook_time") @db.VarChar(32)
   yield        String        @db.VarChar(32)
 
-  category     Category      @relation(fields: [categoryId], references: [id])
-  categoryId   String        @map("category_id")
-
   image        RecipeImage   @relation(fields: [imageId], references: [id])
   imageId      String        @unique @map("image_id")
 
   user         User          @relation(fields: [author], references: [username])
   author       String
 
+  categories   Category[]
+  tags         Tag[]
   ingredients  Ingredient[]
   instructions Instruction[]
 
@@ -96,6 +95,15 @@ model RecipeImage {
   recipe  Recipe?
 
   @@map("recipe_images")
+}
+
+model Tag {
+  id      String  @id @default(cuid())
+  name    String  @unique @db.VarChar(32)
+
+  recipes Recipe[]
+
+  @@map("tags")
 }
 
 model User {
