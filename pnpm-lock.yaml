@@ -23,6 +23,9 @@ dependencies:
   '@prisma/client':
     specifier: ^5.3.1
     version: 5.3.1(prisma@5.3.1)
+  '@uploadthing/react':
+    specifier: ^5.6.1
+    version: 5.6.1(next@13.4.19)(react@18.2.0)(uploadthing@5.6.1)(zod@3.21.4)
   next:
     specifier: ^13.4.19
     version: 13.4.19(react-dom@18.2.0)(react@18.2.0)
@@ -32,6 +35,9 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  uploadthing:
+    specifier: ^5.6.1
+    version: 5.6.1(zod@3.21.4)
 
 devDependencies:
   '@types/node':
@@ -664,6 +670,45 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
+  /@uploadthing/mime-types@0.2.1:
+    resolution: {integrity: sha512-UDySsPbdi7wp52WG7mp5CiZwaTvokDubqhm1xhFm73Bqhp0PsGbwSSF5PdCXH4fe8Y4EKGrMyWQ4i1fF9+DVVQ==}
+    dev: false
+
+  /@uploadthing/react@5.6.1(next@13.4.19)(react@18.2.0)(uploadthing@5.6.1)(zod@3.21.4):
+    resolution: {integrity: sha512-uVd4I26OudpUcikobDFBMl9mG0vlhdXmK57oidCIrvfgNfKZOehpW+pqe1nUWE8HoYquJ1iK4OrmrfX8hOK2MA==}
+    peerDependencies:
+      next: '*'
+      react: ^17.0.2 || ^18.0.0
+      uploadthing: ^5.0.0
+    peerDependenciesMeta:
+      next:
+        optional: true
+    dependencies:
+      '@uploadthing/shared': 5.2.2(@uploadthing/mime-types@0.2.1)(zod@3.21.4)
+      attr-accept: 2.2.2
+      file-selector: 0.6.0
+      next: 13.4.19(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      tailwind-merge: 1.14.0
+      uploadthing: 5.6.1(zod@3.21.4)
+    transitivePeerDependencies:
+      - '@uploadthing/mime-types'
+      - zod
+    dev: false
+
+  /@uploadthing/shared@5.2.2(@uploadthing/mime-types@0.2.1)(zod@3.21.4):
+    resolution: {integrity: sha512-OxNXcL91BSyKhZ+j0N5ekFRpCTwWsAf8B1FzL1YePTrNhMA0ZdlYqsObMAr7/jeWTc/mGaRRV1zUL4HBevnE3Q==}
+    peerDependencies:
+      '@uploadthing/mime-types': ^0.2.0
+      zod: ^3.21.4
+    peerDependenciesMeta:
+      '@uploadthing/mime-types':
+        optional: true
+    dependencies:
+      '@uploadthing/mime-types': 0.2.1
+      zod: 3.21.4
+    dev: false
+
   /acorn-jsx@5.3.2(acorn@8.10.0):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -814,6 +859,11 @@ packages:
 
   /asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: false
+
+  /attr-accept@2.2.2:
+    resolution: {integrity: sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==}
+    engines: {node: '>=4'}
     dev: false
 
   /available-typed-arrays@1.0.5:
@@ -1474,6 +1524,13 @@ packages:
     dependencies:
       flat-cache: 3.1.0
     dev: true
+
+  /file-selector@0.6.0:
+    resolution: {integrity: sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==}
+    engines: {node: '>= 12'}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
 
   /fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
@@ -2768,6 +2825,10 @@ packages:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
     dev: false
 
+  /tailwind-merge@1.14.0:
+    resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
+    dev: false
+
   /tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
@@ -2900,6 +2961,15 @@ packages:
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
     dev: true
+
+  /uploadthing@5.6.1(zod@3.21.4):
+    resolution: {integrity: sha512-lWVMCoAmZ33mahV6NS7oW+eQl++jnYEuaR3zh9PlrEt6P8lkl3GPDUE5iWywBx+pK9HewIqZvaZXQvzKOjOlMg==}
+    dependencies:
+      '@uploadthing/mime-types': 0.2.1
+      '@uploadthing/shared': 5.2.2(@uploadthing/mime-types@0.2.1)(zod@3.21.4)
+    transitivePeerDependencies:
+      - zod
+    dev: false
 
   /uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}

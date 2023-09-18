@@ -1,0 +1,28 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.row {
+  composes: stack;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list {
+  composes: stack;
+  gap: 0.5rem;
+}
+
+.fullW {
+  width: 100%;
+}
+
+.amount {
+  width: 35%;
+}
+
+.note {
+  text-align: center;
+}

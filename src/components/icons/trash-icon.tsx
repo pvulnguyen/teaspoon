@@ -1,8 +1,8 @@
 export function TrashIcon() {
   return (
     <svg
-      width='24'
-      height='24'
+      width='28'
+      height='28'
       viewBox='0 0 24 24'
       strokeWidth='1.5'
       stroke='currentColor'
