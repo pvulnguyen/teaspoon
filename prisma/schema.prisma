@@ -75,7 +75,6 @@ model Recipe {
   author       String
 
   categories   Category[]
-  tags         Tag[]
   ingredients  Ingredient[]
   instructions Instruction[]
 
@@ -95,15 +94,6 @@ model RecipeImage {
   recipe  Recipe?
 
   @@map("recipe_images")
-}
-
-model Tag {
-  id      String  @id @default(cuid())
-  name    String  @unique @db.VarChar(32)
-
-  recipes Recipe[]
-
-  @@map("tags")
 }
 
 model User {
