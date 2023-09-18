@@ -3,6 +3,7 @@ import '@mantine/core/styles.css';
 import type { Metadata } from 'next';
 
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { fonts, theme } from '@/config';
 
 export const metadata: Metadata = {
   title: {
@@ -13,12 +14,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='en' className={fonts.inter.variable}>
       <head>
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );
