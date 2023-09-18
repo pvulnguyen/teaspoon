@@ -1,20 +1,22 @@
-import { BookIcon, DiscoverIcon, HomeIcon } from '@/components/icons';
+import { AddFileIcon, BookIcon, DiscoverIcon, HomeIcon } from '@/components/icons';
 
 export const routes = [
   {
-    id: 0,
     label: 'Home',
     path: '/',
     icon: <HomeIcon />,
   },
   {
-    id: 1,
+    label: 'New Recipe',
+    path: '/recipes/new',
+    icon: <AddFileIcon />,
+  },
+  {
     label: 'Cookbook',
     path: '/cookbook',
     icon: <BookIcon />,
   },
   {
-    id: 2,
     label: 'Discover',
     path: '/recipes/discover',
     icon: <DiscoverIcon />,
