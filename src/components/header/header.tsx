@@ -17,7 +17,7 @@ export function Header() {
       </SignedIn>
       <SignedOut>
         <SignInButton>
-          <Button>Sign In</Button>
+          <Button size='compact-md'>Sign In</Button>
         </SignInButton>
       </SignedOut>
     </header>
