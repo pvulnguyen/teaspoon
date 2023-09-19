@@ -1,5 +1,4 @@
 .card {
-  padding-top: 0;
   width: 23rem;
   border: 1px solid #dee2e6;
   border-radius: 1rem;
@@ -17,6 +16,11 @@
 
 .cardBody {
   padding: 1rem;
+}
+
+.cardFooter {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .description {
