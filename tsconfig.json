@@ -13,7 +13,6 @@
     "allowJs": true,
     "noEmit": true,
     "isolatedModules": true,
-    "verbatimModuleSyntax": true,
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,

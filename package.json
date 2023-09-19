@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "private": true,
   "name": "teaspoon",
   "version": "0.1.0",
@@ -33,6 +32,10 @@
     "postcss-preset-mantine": "^1.7.0",
     "postcss-simple-vars": "^7.0.1",
     "prisma": "^5.3.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.2.2"
+  },
+  "prisma": {
+    "seed": "tsnd --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }
