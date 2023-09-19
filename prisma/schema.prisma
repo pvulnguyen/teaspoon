@@ -11,6 +11,8 @@ datasource db {
 model Category {
   id        String   @id @default(cuid())
   name      String   @unique @db.VarChar(32)
+  slug      String   @unique @db.VarChar(64)
+  image     String   @db.Text
 
   recipes   Recipe[]
 

@@ -1,0 +1,37 @@
+.card {
+  position: relative;
+  height: 14rem;
+  width: 14rem;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  border-radius: 1rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.content {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 1;
+  mix-blend-mode: darken;
+}
+
+.title {
+  padding: 0.5rem;
+  font-weight: 900;
+  font-size: 2rem;
+  color: #6c5040;
+}
