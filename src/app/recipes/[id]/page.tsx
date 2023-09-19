@@ -1,11 +1,21 @@
+import type { User } from '@clerk/nextjs/server';
+
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { currentUser } from '@clerk/nextjs';
+
 import { db } from '@/db';
+import utils from '@/lib/utils.module.css';
 import styles from './page.module.css';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const recipe = await getRecipe(params.id);
   if (!recipe) return notFound();
+
+  const user = await currentUser();
+  if (user && !recipe.isPublic && !(await isAuthorized(user, recipe.author))) {
+    return renderUnauthorizedMessage();
+  }
 
   return (
     <main className={styles.main}>
@@ -46,6 +56,18 @@ export default async function Page({ params }: { params: { id: string } }) {
           ))}
         </ol>
       </section>
+    </main>
+  );
+}
+
+async function isAuthorized(user: User, recipeAuthor: string) {
+  return user && user.username === recipeAuthor;
+}
+
+async function renderUnauthorizedMessage() {
+  return (
+    <main className={utils.center}>
+      <p>This recipe has been marked private by the author.</p>
     </main>
   );
 }
