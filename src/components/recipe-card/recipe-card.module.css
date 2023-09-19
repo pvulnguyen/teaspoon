@@ -1,0 +1,25 @@
+.card {
+  padding-top: 0;
+  width: 23rem;
+  border: 1px solid #dee2e6;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 1rem rgba(160, 162, 164, 0.5);
+}
+
+.cardMedia {
+  height: 24rem;
+  position: relative;
+  object-fit: cover;
+  overflow: hidden;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.cardBody {
+  padding: 1rem;
+}
+
+.description {
+  font-size: 0.825rem;
+  color: gray;
+}
