@@ -18,7 +18,7 @@ export const routes = [
   },
   {
     label: 'Discover',
-    path: '/recipes/discover',
+    path: '/recipes',
     icon: <DiscoverIcon />,
   },
 ];
