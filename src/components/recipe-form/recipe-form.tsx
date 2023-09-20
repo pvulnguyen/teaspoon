@@ -12,8 +12,10 @@ import { UploadButton } from '@uploadthing/react';
 
 import { TrashIcon } from '../icons';
 import { RecipeFormProvider, useRecipeForm } from './recipe-form-context';
-import styles from './recipe-form.module.css';
 import { SelectOrCreate } from './select-or-create';
+
+import utils from '@/lib/utils.module.css';
+import styles from './recipe-form.module.css';
 
 const initialValues = {
   name: '',
@@ -68,10 +70,10 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
 
   return (
     <RecipeFormProvider form={form}>
-      <form className={styles.stack} onSubmit={form.onSubmit((values) => handleSubmit(values))}>
+      <form className={utils.stack} onSubmit={form.onSubmit((values) => handleSubmit(values))}>
         <section>
           <h2>Details</h2>
-          <div className={styles.stack}>
+          <div className={utils.stack}>
             <TextInput label='Name' placeholder='Recipe name' {...form.getInputProps('name')} />
             <TextInput
               label='Description'
@@ -84,7 +86,7 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
               data={categories}
               {...form.getInputProps('categories')}
             />
-            <div className={styles.row}>
+            <div className={utils.group}>
               <TextInput
                 label='Prep Time'
                 placeholder='Prep time'
@@ -103,9 +105,9 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
         </section>
         <section>
           <h2>Ingredients</h2>
-          <ul className={styles.list}>
+          <ul className={`${utils.stack} ${styles.list}`}>
             {form.values.ingredients.map((ingredient, index) => (
-              <li className={styles.row} key={ingredient.key}>
+              <li className={utils.group} key={ingredient.key}>
                 <TextInput
                   placeholder='Amount'
                   {...form.getInputProps(`ingredients.${index}.amount`)}
@@ -139,9 +141,9 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
         </section>
         <section>
           <h2>Instructions</h2>
-          <ul className={styles.list}>
+          <ul className={`${utils.stack} ${styles.list}`}>
             {form.values.instructions.map((instruction, index) => (
-              <li className={styles.row} key={instruction.key}>
+              <li className={styles.group} key={instruction.key}>
                 <NumberInput
                   placeholder={`Step ${index + 1}`}
                   {...form.getInputProps(`instructions.${index}.position`)}

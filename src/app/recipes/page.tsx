@@ -1,11 +1,12 @@
 import { getCategories } from '@/app/api/categories';
 import { CategoryCard } from '@/components';
+import utils from '@/lib/utils.module.css';
 
 export default async function Page() {
   const categories = await getCategories();
 
   return (
-    <main>
+    <main className={utils.mainContainerPrimary}>
       <h1>Discover</h1>
       <section>
         <h2>By Category</h2>

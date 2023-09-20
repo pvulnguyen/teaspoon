@@ -1,5 +1,5 @@
-import styles from './auth.module.css';
+import utils from '@/lib/utils.module.css';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <main className={styles.main}>{children}</main>;
+  return <main className={utils.center}>{children}</main>;
 }

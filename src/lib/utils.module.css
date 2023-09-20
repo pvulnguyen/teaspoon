@@ -4,3 +4,25 @@
   align-items: center;
   justify-content: center;
 }
+
+.fullW {
+  width: 100%;
+}
+
+.group {
+  display: flex;
+  gap: 1rem;
+}
+
+.mainContainerPrimary {
+  padding: 1rem;
+}
+
+.mainContainerSecondary {
+  padding: 2rem 1rem;
+}
+
+.stack {
+  composes: group;
+  flex-direction: column;
+}

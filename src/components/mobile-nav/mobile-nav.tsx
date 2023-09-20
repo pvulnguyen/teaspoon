@@ -8,6 +8,7 @@ import { Burger } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 import { routes } from '@/config';
+import utils from '@/lib/utils.module.css';
 import styles from './mobile-nav.module.css';
 
 export function MobileNav() {
@@ -31,7 +32,7 @@ function MobileMenu({ opened, closeMenu }: { opened: boolean; closeMenu: () => v
 
   return createPortal(
     <div className={styles.menu}>
-      <nav className={styles.menuContent}>
+      <nav className={utils.stack}>
         {routes.map((route, index) => (
           <Link className={styles.navLink} href={route.path} key={index} onClick={closeMenu}>
             {route.icon} {route.label}
