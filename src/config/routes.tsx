@@ -7,9 +7,9 @@ export const routes = [
     icon: <HomeIcon />,
   },
   {
-    label: 'New Recipe',
-    path: '/recipes/new',
-    icon: <AddFileIcon />,
+    label: 'Discover',
+    path: '/recipes',
+    icon: <DiscoverIcon />,
   },
   {
     label: 'Cookbook',
@@ -17,8 +17,8 @@ export const routes = [
     icon: <BookIcon />,
   },
   {
-    label: 'Discover',
-    path: '/recipes',
-    icon: <DiscoverIcon />,
+    label: 'New Recipe',
+    path: '/recipes/new',
+    icon: <AddFileIcon />,
   },
 ];
