@@ -35,13 +35,8 @@ export async function POST(request: Request) {
           },
         },
         categories: {
-          connectOrCreate: data.categories.map((category) => ({
-            where: {
-              name: category,
-            },
-            create: {
-              name: category,
-            },
+          connect: data.categories.map((category) => ({
+            name: category,
           })),
         },
         ingredients: {
