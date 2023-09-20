@@ -90,13 +90,13 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
               <TextInput
                 label='Prep Time'
                 placeholder='Prep time'
-                w='100%'
+                className={utils.fullW}
                 {...form.getInputProps('prepTime')}
               />
               <TextInput
                 label='Cook Time'
                 placeholder='Cook time'
-                w='100%'
+                className={utils.fullW}
                 {...form.getInputProps('cookTime')}
               />
             </div>
@@ -130,7 +130,7 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
           </ul>
           <Button
             variant='light'
-            w='100%'
+            className={utils.fullW}
             mt='md'
             onClick={() =>
               form.insertListItem('ingredients', { amount: '', name: '', key: randomId() })
@@ -143,14 +143,14 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
           <h2>Instructions</h2>
           <ul className={`${utils.stack} ${styles.list}`}>
             {form.values.instructions.map((instruction, index) => (
-              <li className={styles.group} key={instruction.key}>
+              <li className={utils.group} key={instruction.key}>
                 <NumberInput
                   placeholder={`Step ${index + 1}`}
                   {...form.getInputProps(`instructions.${index}.position`)}
                 />
                 <TextInput
                   placeholder='Text'
-                  className={styles.fullW}
+                  className={utils.fullW}
                   {...form.getInputProps(`instructions.${index}.text`)}
                 />
                 <ActionIcon
@@ -166,7 +166,7 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
           </ul>
           <Button
             variant='light'
-            w='100%'
+            className={utils.fullW}
             mt='md'
             onClick={() =>
               form.insertListItem('instructions', { position: null, text: '', key: randomId() })
