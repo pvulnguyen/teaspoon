@@ -5,7 +5,19 @@ import type { RecipeFormValues } from './recipe-form-context';
 
 import { useRouter } from 'next/navigation';
 
-import { ActionIcon, Button, MultiSelect, NumberInput, Text, TextInput } from '@mantine/core';
+import {
+  ActionIcon,
+  Button,
+  Flex,
+  Group,
+  MultiSelect,
+  NumberInput,
+  Stack,
+  Switch,
+  Text,
+  TextInput,
+  Title,
+} from '@mantine/core';
 import { randomId } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
 import { UploadButton } from '@uploadthing/react';
@@ -15,7 +27,6 @@ import { RecipeFormProvider, useRecipeForm } from './recipe-form-context';
 import { SelectOrCreate } from './select-or-create';
 
 import utils from '@/lib/utils.module.css';
-import styles from './recipe-form.module.css';
 
 const initialValues = {
   name: '',
@@ -72,8 +83,11 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
     <RecipeFormProvider form={form}>
       <form className={utils.stack} onSubmit={form.onSubmit((values) => handleSubmit(values))}>
         <section>
-          <h2>Details</h2>
-          <div className={utils.stack}>
+          <Group justify='space-between'>
+            <Title order={2} size='h3'>Details</Title>
+            <Switch label='Discoverable' radius='sm' {...form.getInputProps('isPublic')} />
+          </Group>
+          <Stack gap='sm'>
             <TextInput label='Name' placeholder='Recipe name' {...form.getInputProps('name')} />
             <TextInput
               label='Description'
@@ -86,7 +100,7 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
               data={categories}
               {...form.getInputProps('categories')}
             />
-            <div className={utils.group}>
+            <Flex gap='md'>
               <TextInput
                 label='Prep Time'
                 placeholder='Prep time'
@@ -99,15 +113,15 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
                 className={utils.fullW}
                 {...form.getInputProps('cookTime')}
               />
-            </div>
+            </Flex>
             <TextInput label='Yield' placeholder='Yield' {...form.getInputProps('yield')} />
-          </div>
+          </Stack>
         </section>
         <section>
-          <h2>Ingredients</h2>
-          <ul className={`${utils.stack} ${styles.list}`}>
+          <Title order={2} size='h3'>Ingredients</Title>
+          <Stack gap='sm'>
             {form.values.ingredients.map((ingredient, index) => (
-              <li className={utils.group} key={ingredient.key}>
+              <Flex gap='md' key={ingredient.key}>
                 <TextInput
                   placeholder='Amount'
                   {...form.getInputProps(`ingredients.${index}.amount`)}
@@ -125,25 +139,23 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
                 >
                   <TrashIcon />
                 </ActionIcon>
-              </li>
+              </Flex>
             ))}
-          </ul>
+          </Stack>
           <Button
             variant='light'
-            className={utils.fullW}
             mt='md'
-            onClick={() =>
-              form.insertListItem('ingredients', { amount: '', name: '', key: randomId() })
-            }
+            fullWidth
+            onClick={() => form.insertListItem('ingredients', { amount: '', name: '', key: randomId() })}
           >
             Add Ingredient
           </Button>
         </section>
         <section>
-          <h2>Instructions</h2>
-          <ul className={`${utils.stack} ${styles.list}`}>
+          <Title order={2} size='h3'>Instructions</Title>
+          <Stack gap='sm'>
             {form.values.instructions.map((instruction, index) => (
-              <li className={utils.group} key={instruction.key}>
+              <Flex gap='md' key={instruction.key}>
                 <NumberInput
                   placeholder={`Step ${index + 1}`}
                   {...form.getInputProps(`instructions.${index}.position`)}
@@ -161,22 +173,20 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
                 >
                   <TrashIcon />
                 </ActionIcon>
-              </li>
+              </Flex>
             ))}
-          </ul>
+          </Stack>
           <Button
             variant='light'
-            className={utils.fullW}
             mt='md'
-            onClick={() =>
-              form.insertListItem('instructions', { position: null, text: '', key: randomId() })
-            }
+            fullWidth
+            onClick={() => form.insertListItem('instructions', { position: null, text: '', key: randomId() })}
           >
             Add Step
           </Button>
         </section>
         <section>
-          <h2>Image</h2>
+          <Title order={2} size='h3'>Image</Title>
           <UploadButton<ImageUploadRouter>
             endpoint='recipeImage'
             onClientUploadComplete={(res) => {
@@ -187,14 +197,8 @@ export function RecipeForm({ categories, items }: { categories: string[]; items:
             onUploadError={(e: Error) => console.log(e.message)}
           />
         </section>
-        {!form.values.image.url && (
-          <Text size='sm' ta='center'>
-            You can save this recipe once you&apos;ve uploaded an image of the finished dish.
-          </Text>
-        )}
-        <Button type='submit' color='green' disabled={!form.values.image.url}>
-          Save Recipe
-        </Button>
+        {!form.values.image.url && <Text size='sm' ta='center'>You can save this recipe once you&apos;ve uploaded an image of the finished dish.</Text>}
+        <Button type='submit' color='green' disabled={!form.values.image.url}>Save Recipe</Button>
       </form>
     </RecipeFormProvider>
   );
