@@ -14,14 +14,6 @@
   gap: 1rem;
 }
 
-.mainContainerPrimary {
-  padding: 1rem;
-}
-
-.mainContainerSecondary {
-  padding: 2rem 1rem;
-}
-
 .stack {
   composes: group;
   flex-direction: column;

@@ -1,6 +1,8 @@
 import { getCookbook } from '@/app/api/cookbook';
-import { RecipeCard } from '@/components';
+import { MainContainer, RecipeCard } from '@/components';
+
 import utils from '@/lib/utils.module.css';
+import styles from './page.module.css';
 
 export default async function Page() {
   const cookbook = await getCookbook();
@@ -13,15 +15,14 @@ export default async function Page() {
   }
 
   return (
-    <main className={utils.mainContainerPrimary}>
-      <h1>My Cookbook</h1>
-      <ul>
+    <MainContainer title='My Cookbook'>
+      <ul className={styles.recipeList}>
         {cookbook.recipes.map((recipe) => (
           <li key={recipe.id}>
             <RecipeCard recipe={recipe} />
           </li>
         ))}
       </ul>
-    </main>
+    </MainContainer>
   );
 }

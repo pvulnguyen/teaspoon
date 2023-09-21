@@ -3,6 +3,10 @@
   border: 1px solid #dee2e6;
   border-radius: 1rem;
   box-shadow: 0 0.25rem 1rem rgba(160, 162, 164, 0.5);
+
+  @media (min-width: $mantine-breakpoint-md) {
+    max-width: 20rem;
+  }
 }
 
 .cardMedia {
@@ -12,6 +16,10 @@
   overflow: hidden;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+
+  @media (min-width: $mantine-breakpoint-md){
+    height: 20rem;
+  }
 }
 
 .cardBody {
