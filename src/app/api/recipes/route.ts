@@ -1,17 +1,24 @@
-import type { RecipeFormData } from '@/components/recipe-form';
+import type { NextRequest } from 'next/server';
+import type { RecipeFormValues } from '@/components/recipe-form';
 
-import { currentUser } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
+
+import { clerkClient } from '@clerk/nextjs';
+import { getAuth } from '@clerk/nextjs/server';
+
 import { db } from '@/db';
 
-export async function POST(request: Request) {
-  const user = await currentUser();
-  if (!user) return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+export async function POST(request: NextRequest) {
+  const { userId } = getAuth(request);
+  if (!userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
+  const user = userId ? await clerkClient.users.getUser(userId) : null;
+  
   try {
-    const data: RecipeFormData = await request.json();
+    const data: RecipeFormValues = await request.json();
     const result = await db.recipe.create({
       data: {
+        isPublic: data.isPublic,
         name: data.name,
         description: data.description,
         prepTime: data.prepTime,
@@ -26,11 +33,12 @@ export async function POST(request: Request) {
         user: {
           connectOrCreate: {
             where: {
-              clerkId: user.id,
+              clerkId: user!.id,
             },
             create: {
-              clerkId: user.id,
-              username: user.username!,
+              clerkId: user!.id,
+              // A username is required at sign up.
+              username: user!.username!,
             },
           },
         },
@@ -57,7 +65,7 @@ export async function POST(request: Request) {
         },
         instructions: {
           create: data.instructions.map((instruction) => ({
-            position: instruction.position,
+            position: instruction.position!,
             text: instruction.text,
             key: instruction.key,
           })),
