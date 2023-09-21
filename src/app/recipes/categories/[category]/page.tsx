@@ -1,5 +1,6 @@
 import { RecipeCard } from '@/components';
 import { db } from '@/db';
+
 import utils from '@/lib/utils.module.css';
 import styles from './page.module.css';
 
@@ -10,26 +11,16 @@ export default async function Page({ params }: { params: { category: string } })
   return (
     <main className={utils.mainContainerPrimary}>
       <h1 className={styles.title}>{category}</h1>
-      <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe.id}>
-            <RecipeCard recipe={recipe} />
-          </li>
-        ))}
-      </ul>
+      {recipes?.map((recipe) => (
+        <RecipeCard key={recipe.id} recipe={recipe} />
+      ))}
     </main>
   );
 }
 
-async function getByCategory(category: string) {
-  const recipes = await db.recipe.findMany({
-    where: {
-      categories: {
-        some: {
-          name: category,
-        },
-      },
-    },
+async function getByCategory(name: string) {
+  const recipes = await db.category.findUnique({ where: { name } }).recipes({
+    where: { isPublic: true },
     select: {
       id: true,
       name: true,
