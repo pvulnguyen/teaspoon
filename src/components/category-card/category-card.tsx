@@ -11,7 +11,7 @@ type CategoryCard = {
 export function CategoryCard({ category }: { category: CategoryCard }) {
   return (
     <div className={styles.card}>
-      <Link href={`/recipes/category/${category.slug}`}>
+      <Link href={`/recipes/categories/${category.slug}`}>
         <div className={styles.image} style={{ backgroundImage: `url(${category.image})` }} />
         <div className={styles.overlay} />
         <div className={styles.content}>
