@@ -1,6 +1,6 @@
 import { getCategories } from '@/app/api/categories';
 import { CategoryCard } from '@/components';
-import utils from '@/lib/utils.module.css';
+import utils from '@/styles/utils.module.css';
 
 export default async function Page() {
   const categories = await getCategories();

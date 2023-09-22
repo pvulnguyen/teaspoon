@@ -8,7 +8,7 @@ import { Burger } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 import { routes } from '@/config';
-import utils from '@/lib/utils.module.css';
+import utils from '@/styles/utils.module.css';
 import styles from './mobile-nav.module.css';
 
 export function MobileNav() {

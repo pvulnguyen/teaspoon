@@ -1,7 +1,7 @@
 import { getCookbook } from '@/app/api/cookbook';
-import { MainContainer, RecipeCard } from '@/components';
+import { RecipeCard } from '@/components';
 
-import utils from '@/lib/utils.module.css';
+import utils from '@/styles/utils.module.css';
 import styles from './page.module.css';
 
 export default async function Page() {
@@ -15,14 +15,13 @@ export default async function Page() {
   }
 
   return (
-    <MainContainer title='My Cookbook'>
-      <ul className={styles.recipeList}>
+    <main className={styles.main}>
+      <h1 className='title'>My Cookbook</h1>
+      <ul className={styles.cards}>
         {cookbook.recipes.map((recipe) => (
-          <li key={recipe.id}>
-            <RecipeCard recipe={recipe} />
-          </li>
+          <RecipeCard recipe={recipe} key={recipe.id} />
         ))}
       </ul>
-    </MainContainer>
+    </main>
   );
 }

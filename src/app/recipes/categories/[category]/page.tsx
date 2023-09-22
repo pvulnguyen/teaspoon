@@ -1,7 +1,7 @@
 import { RecipeCard } from '@/components';
 import { db } from '@/db';
 
-import utils from '@/lib/utils.module.css';
+import utils from '@/styles/utils.module.css';
 import styles from './page.module.css';
 
 export default async function Page({ params }: { params: { category: string } }) {

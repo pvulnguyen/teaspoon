@@ -1,11 +1,16 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 2rem 1rem;
+  margin: 0 auto;
 }
 
-.recipeList {
+.cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: space-between;
+}
+
+@media (min-width: $mantine-breakpoint-lg) {
+  .main {
+    max-width: 75em;
+  }
 }

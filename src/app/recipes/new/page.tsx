@@ -1,7 +1,7 @@
 import { getCategories } from '@/app/api/categories';
 import { getItems } from '@/app/api/items';
 import { RecipeForm } from '@/components';
-import utils from '@/lib/utils.module.css';
+import utils from '@/styles/utils.module.css';
 import styles from './page.module.css';
 
 export default async function Page() {

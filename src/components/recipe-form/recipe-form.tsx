@@ -26,7 +26,7 @@ import { TrashIcon } from '../icons';
 import { RecipeFormProvider, useRecipeForm } from './recipe-form-context';
 import { SelectOrCreate } from './select-or-create';
 
-import utils from '@/lib/utils.module.css';
+import utils from '@/styles/utils.module.css';
 
 const initialValues = {
   name: '',

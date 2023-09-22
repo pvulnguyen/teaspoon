@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 import { currentUser } from '@clerk/nextjs';
 
 import { getRecipe } from '@/app/api/recipes';
-import utils from '@/lib/utils.module.css';
+import utils from '@/styles/utils.module.css';
 import styles from './page.module.css';
 
 export default async function Page({ params }: { params: { id: string } }) {

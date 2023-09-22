@@ -20,3 +20,9 @@ p {
   margin: 0;
   padding: 0;
 }
+
+.title {
+  font-size: 2.625rem;
+  font-weight: 700;
+  line-height: 1.547619;
+}

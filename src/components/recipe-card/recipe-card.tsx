@@ -1,26 +1,17 @@
-import Image from 'next/image';
+import type { RecipePreview } from '@/lib/api';
+
 import Link from 'next/link';
-import { Pill } from '@mantine/core';
+
+import { RecipeCardContent } from './recipe-card-content';
+import { RecipeCardImage } from './recipe-card-image';
 import styles from './recipe-card.module.css';
 
-export function RecipeCard({ recipe }: { recipe: any }) {
+export function RecipeCard({ recipe }: { recipe: RecipePreview }) {
   return (
     <div className={styles.card}>
       <Link href={`/recipes/${recipe.id}`}>
-        <div className={styles.cardMedia}>
-          <Image src={recipe.image.url} alt={recipe.name} fill priority />
-        </div>
-        <div className={styles.cardBody}>
-          <h2>{recipe.name}</h2>
-          <p className={styles.description}>{recipe.description}</p>
-          <ul className={styles.cardFooter}>
-            {recipe.categories.map((category: { name: string }, index: number) => (
-              <li key={index}>
-                <Pill mt='md'>{category.name}</Pill>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <RecipeCardImage src={recipe.image.url} alt={recipe.name} />
+        <RecipeCardContent recipe={recipe} />
       </Link>
     </div>
   );

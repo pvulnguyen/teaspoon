@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Button } from '@mantine/core';
 
-import utils from '@/lib/utils.module.css';
+import utils from '@/styles/utils.module.css';
 import styles from './page.module.css';
 
 export default function Page() {
