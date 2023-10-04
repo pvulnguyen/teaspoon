@@ -1,0 +1,12 @@
+.desktopNavContainer {
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    display: none;
+  }
+}
+
+.routeLabel {
+  font-weight: 500;
+}

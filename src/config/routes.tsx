@@ -1,24 +1,24 @@
-import { AddFileIcon, BookIcon, DiscoverIcon, HomeIcon } from '@/components/icons';
+import { IconBook2, IconFilePlus, IconHome, IconWorld } from '@tabler/icons-react';
 
 export const routes = [
   {
     label: 'Home',
     path: '/',
-    icon: <HomeIcon />,
+    icon: <IconHome />,
   },
   {
     label: 'Discover',
-    path: '/recipes',
-    icon: <DiscoverIcon />,
+    path: '/discover',
+    icon: <IconWorld />,
   },
   {
     label: 'Cookbook',
     path: '/cookbook',
-    icon: <BookIcon />,
+    icon: <IconBook2 />,
   },
   {
-    label: 'New Recipe',
+    label: 'Add Recipe',
     path: '/recipes/new',
-    icon: <AddFileIcon />,
+    icon: <IconFilePlus />,
   },
 ];

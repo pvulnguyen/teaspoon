@@ -1,0 +1,8 @@
+.mainContainer {
+  padding: 2rem 1rem;
+
+  @media (min-width: $mantine-breakpoint-md) {
+    max-width: 60em;
+    margin: 0 auto;
+  }
+}

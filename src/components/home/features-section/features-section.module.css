@@ -1,0 +1,38 @@
+.sectionContainer {
+  height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.sectionContainer h2 {
+  font-size: 2.25rem;
+  line-height: 1.25;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.feature {
+  max-width: 17em;
+}
+
+@media (min-width: $mantine-breakpoint-md) {
+  .sectionContainer {
+    align-items: center;
+  }
+
+  .sectionContainer h2 {
+    font-size: 3rem;
+  }
+
+  .featuresList {
+    flex-direction: row;
+  }
+}

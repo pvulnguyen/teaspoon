@@ -1,20 +1,23 @@
-.center {
-  height: calc(100vh - 4rem);
+.stack {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.fullW {
-  width: 100%;
-}
-
-.group {
-  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
-.stack {
+.group {
+  composes: stack;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mainContainer {
   composes: group;
+  min-height: calc(100vh - 4rem);
   flex-direction: column;
+  justify-content: center;
+}
+
+.list {
+  composes: stack;
+  gap: 0.5rem;
 }

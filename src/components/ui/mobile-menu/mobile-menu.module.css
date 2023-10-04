@@ -1,0 +1,5 @@
+.mobileMenuContainer {
+  @media (min-width: $mantine-breakpoint-sm) {
+    display: none;
+  }
+}

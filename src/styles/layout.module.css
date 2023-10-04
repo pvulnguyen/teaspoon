@@ -1,0 +1,19 @@
+.default {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.narrow {
+  composes: default;
+  max-width: 36em;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}

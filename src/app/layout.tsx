@@ -1,16 +1,14 @@
-import '@/styles/global.css';
+import '@styles/global.css';
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 import '@uploadthing/react/styles.css';
 
 import type { Metadata } from 'next';
 
-import { ClerkProvider } from '@clerk/nextjs';
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
-import { Notifications } from '@mantine/notifications';
+import { ColorSchemeScript } from '@mantine/core';
 
-import { Header } from '@/components';
-import { fonts, theme } from '@/config';
+import { Providers } from '@components/providers';
+import { Header } from '@components/ui';
 
 export const metadata: Metadata = {
   title: {
@@ -21,18 +19,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en' className={fonts.inter.variable}>
+    <html lang='en'>
       <head>
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider theme={theme}>
-          <ClerkProvider>
-            <Header />
-            {children}
-          </ClerkProvider>
-          <Notifications />
-        </MantineProvider>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );

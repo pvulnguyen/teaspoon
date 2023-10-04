@@ -1,19 +1,16 @@
 import type { NextRequest } from 'next/server';
-import type { RecipeFormValues } from '@/components/recipe-form';
+import type { RecipeFormValues } from '@context/recipe-form-context';
 
 import { NextResponse } from 'next/server';
 
-import { clerkClient } from '@clerk/nextjs';
-import { getAuth } from '@clerk/nextjs/server';
+import { currentUser } from '@clerk/nextjs';
 
-import { db } from '@/db';
+import { db } from '@db';
 
 export async function POST(request: NextRequest) {
-  const { userId } = getAuth(request);
-  if (!userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  const user = await currentUser();
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-  const user = userId ? await clerkClient.users.getUser(userId) : null;
-  
   try {
     const data: RecipeFormValues = await request.json();
     const result = await db.recipe.create({
@@ -65,7 +62,7 @@ export async function POST(request: NextRequest) {
         },
         instructions: {
           create: data.instructions.map((instruction) => ({
-            position: instruction.position!,
+            position: Number(instruction.position),
             text: instruction.text,
             key: instruction.key,
           })),
@@ -76,7 +73,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ recipeId: result.id }, { status: 201 });
   } catch (e) {
     console.error(e);
-
     return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
   }
 }

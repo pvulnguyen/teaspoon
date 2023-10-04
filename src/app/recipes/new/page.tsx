@@ -1,8 +1,8 @@
-import { getCategories } from '@/app/api/categories';
-import { getItems } from '@/app/api/items';
-import { RecipeForm } from '@/components';
-import utils from '@/styles/utils.module.css';
-import styles from './page.module.css';
+import { RecipeForm } from '@components/recipes';
+import { PageTitle } from '@components/ui';
+import { getCategories, getItems } from '@lib/api';
+
+import layout from '@styles/layout.module.css';
 
 export default async function Page() {
   const categoryData = await getCategories();
@@ -12,8 +12,8 @@ export default async function Page() {
   const items = itemData.map((item) => item.name);
 
   return (
-    <main className={`${utils.mainContainerPrimary} ${styles.main}`}>
-      <h1>New Recipe</h1>
+    <main className={layout.narrow}>
+      <PageTitle text='Add Recipe' />
       <RecipeForm categories={categories} items={items} />
     </main>
   );
