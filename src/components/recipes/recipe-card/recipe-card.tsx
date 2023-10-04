@@ -16,7 +16,7 @@ export function RecipeCard({ recipe }: { recipe: RecipeCardProps }) {
     <Card shadow='sm' padding='lg' radius='md' maw={{ base: '100%', md: '18rem' }} withBorder>
       <CardSection
         h={{ base: '28rem', md: '18rem' }}
-        w={{ base: '22.25rem', md: '18rem' }}
+        w={{ base: '20rem', md: '18rem' }}
         pos='relative'
       >
         <Image src={recipe.image.url} alt={recipe.name} objectFit='cover' fill />
