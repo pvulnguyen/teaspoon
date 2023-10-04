@@ -1,6 +1,5 @@
 import { SignUp } from '@clerk/nextjs';
-
-import utils from '@app/styles/utils.module.css';
+import utils from '@styles/utils.module.css';
 
 export default function Page() {
   return (
