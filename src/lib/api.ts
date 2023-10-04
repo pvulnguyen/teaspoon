@@ -73,6 +73,7 @@ export async function getRecipe(id: string) {
       },
       ingredients: {
         select: {
+          id: true,
           amount: true,
           item: {
             select: {
@@ -84,6 +85,7 @@ export async function getRecipe(id: string) {
       },
       instructions: {
         select: {
+          id: true,
           position: true,
           text: true,
           key: true,
