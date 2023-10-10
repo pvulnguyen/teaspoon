@@ -1,0 +1,36 @@
+.wrapper {
+  height: 100vh;
+  max-width: 65em;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: center;
+  perspective: 500px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.title {
+  font-size: 2.75rem;
+  line-height: 1.25;
+}
+
+.container,
+.container p,
+.title {
+  text-wrap: balance;
+}

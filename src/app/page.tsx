@@ -1,20 +1,18 @@
 import { Fragment } from 'react';
 
 import { SignedIn, SignedOut } from '@clerk/nextjs';
-import { Cookbook, CtaSection, FeaturesSection, HeroSection } from '@components/index';
 
-import styles from '@styles/home.module.css';
+import { Cookbook } from '@components/index';
+import { Landing } from '@views';
+
 import layout from '@styles/layout.module.css';
 
 export default async function Page() {
+
   return (
     <Fragment>
       <SignedOut>
-        <main className={styles.mainContainer}>
-          <HeroSection />
-          <FeaturesSection />
-          <CtaSection />
-        </main>
+        <Landing />
       </SignedOut>
       <SignedIn>
         <main className={layout.default}>

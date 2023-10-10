@@ -24,8 +24,10 @@
       "@config/*": ["./src/config/*"],
       "@context/*": ["./src/context/*"],
       "@db": ["./src/db/index"],
+      "@hooks": ["./src/hooks/index"],
       "@lib/*": ["./src/lib/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@views": ["./src/views/index"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

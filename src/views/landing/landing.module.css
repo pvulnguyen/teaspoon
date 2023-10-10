@@ -1,0 +1,19 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: $mantine-breakpoint-md) {
+    flex-direction: row;
+  }
+}
+
+.features h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.features li {
+  max-width: 20em;
+}
