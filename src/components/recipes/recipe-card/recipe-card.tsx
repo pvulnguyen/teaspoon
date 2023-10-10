@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { Button, Card, CardSection, Flex, Pill, Text } from '@mantine/core';
 
 export type RecipeCardProps = {
@@ -13,7 +14,7 @@ export type RecipeCardProps = {
 
 export function RecipeCard({ recipe }: { recipe: RecipeCardProps }) {
   return (
-    <Card shadow='sm' padding='lg' radius='md' maw={{ base: '100%', md: '18rem' }} withBorder>
+    <Card shadow='sm' padding='sm' radius='md' maw={{ base: '100%', md: '18rem' }} withBorder>
       <CardSection
         h={{ base: '28rem', md: '18rem' }}
         w={{ base: '20rem', md: '18rem' }}
@@ -29,9 +30,7 @@ export function RecipeCard({ recipe }: { recipe: RecipeCardProps }) {
           <Pill key={category.name}>{category.name}</Pill>
         ))}
       </Flex>
-      <Button variant='light' mt='md' component={Link} href={`/recipes/${recipe.id}`}>
-        View Recipe
-      </Button>
+      <Button variant='light' mt='md' component={Link} href={`/recipes/${recipe.id}`}>View Recipe</Button>
     </Card>
   );
 }
