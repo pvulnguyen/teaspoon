@@ -63,7 +63,7 @@ model Recipe {
   name         String
   description  String?       @db.Text
   isPublic     Boolean       @default(false) @map("is_public")
-  prepTime     String        @map("prep_time") @default("No prep time required")
+  prepTime     String        @map("prep_time")
   cookTime     String        @map("cook_time")
   yield        String
 
