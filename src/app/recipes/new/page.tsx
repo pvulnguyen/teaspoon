@@ -4,6 +4,10 @@ import { getCategories, getItems } from '@lib/api';
 
 import layout from '@styles/layout.module.css';
 
+export const metadata = {
+  title: 'Add Recipe',
+};
+
 export default async function Page() {
   const categoryData = await getCategories();
   const categories = categoryData.map((category) => category.name);
