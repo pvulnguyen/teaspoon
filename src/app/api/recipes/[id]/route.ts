@@ -17,7 +17,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         isPublic: data.isPublic,
         name: data.name,
         description: data.description,
-        prepTime: data.prepTime,
+        prepTime: data.prepTime === '' ? 'No prep time required' : data.prepTime,
         cookTime: data.cookTime,
         yield: data.yield,
         image: {
