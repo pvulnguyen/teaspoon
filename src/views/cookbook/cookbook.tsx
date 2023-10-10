@@ -1,13 +1,10 @@
 import Link from 'next/link';
-
 import { currentUser } from '@clerk/nextjs';
 import { Button } from '@mantine/core';
 
 import { RecipeCard } from '@components/recipes';
 import { MainContainer } from '@components/ui';
 import { getCookbook } from '@lib/api';
-
-import layout from '@styles/layout.module.css';
 import styles from './cookbook.module.css';
 
 export async function Cookbook() {
@@ -31,7 +28,7 @@ export async function Cookbook() {
           Add Recipe
         </Button>
       </div>
-      <ul className={layout.flex}>
+      <ul className={styles.recipes}>
         {cookbook?.recipes.map((recipe) => (
           <li key={recipe.id}>
             <RecipeCard recipe={recipe} />

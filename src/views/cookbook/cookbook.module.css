@@ -4,3 +4,10 @@
   justify-content: space-between;
   margin-bottom: 2rem;
 }
+
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}

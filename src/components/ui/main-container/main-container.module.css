@@ -1,6 +1,7 @@
 .container {
   max-width: 62em;
-  margin: 2rem auto;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .title {

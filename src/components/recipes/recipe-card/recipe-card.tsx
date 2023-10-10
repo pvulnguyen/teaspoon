@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-
 import { Button, Card, CardSection, Flex, Pill, Text } from '@mantine/core';
 
 export type RecipeCardProps = {
@@ -14,10 +13,10 @@ export type RecipeCardProps = {
 
 export function RecipeCard({ recipe }: { recipe: RecipeCardProps }) {
   return (
-    <Card shadow='sm' padding='sm' radius='md' maw={{ base: '100%', md: '18rem' }} withBorder>
+    <Card shadow='sm' padding='sm' radius='md' maw={{ md: '18rem' }} withBorder>
       <CardSection
-        h={{ base: '28rem', md: '18rem' }}
-        w={{ base: '20rem', md: '18rem' }}
+        h={{ base: '24rem', sm: '18rem' }}
+        w={{ base: '20rem', sm: '18rem' }}
         pos='relative'
       >
         <Image src={recipe.image.url} alt={recipe.name} objectFit='cover' fill />
