@@ -1,7 +1,6 @@
 import { Fragment } from 'react';
 
 import Image from 'next/image';
-
 import { Group } from '@mantine/core';
 
 import utils from '@styles/utils.module.css';
@@ -27,13 +26,11 @@ export type RecipeProps = {
     id: string;
     amount: string;
     item: { name: string };
-    key: string;
   }[];
   instructions: {
     id: string;
     position: number;
     text: string;
-    key: string;
   }[];
 };
 
@@ -63,7 +60,7 @@ export function Recipe({ recipe }: { recipe: RecipeProps }) {
         </p>
         <ul>
           {recipe.ingredients.map((ingredient) => (
-            <li key={ingredient.key}>
+            <li key={ingredient.id}>
               {ingredient.amount} {ingredient.item.name}
             </li>
           ))}
@@ -73,7 +70,7 @@ export function Recipe({ recipe }: { recipe: RecipeProps }) {
         <h2>Instructions</h2>
         <ol className={utils.stack}>
           {recipe.instructions.map((instruction) => (
-            <li key={instruction.key}>
+            <li key={instruction.id}>
               <strong>{instruction.position}&#46;&nbsp;</strong>
               {instruction.text}
             </li>
