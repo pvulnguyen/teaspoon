@@ -1,11 +1,16 @@
 import { useState } from 'react';
-import { useRecipeFormContext } from '@context/recipe-form-context';
+import { UseFormReturnType } from '@mantine/form';
 import { Combobox, InputBase, ScrollAreaAutosize, useCombobox } from '@mantine/core';
+import { RecipeFormValues } from './recipe-form';
 
-export function SelectOrCreate({ index, items }: { index: number; items: string[] }) {
+type IngredientInputProps = {
+  form: UseFormReturnType<RecipeFormValues>;
+  items: string[];
+  index: number; 
+}
+
+export function IngredientInput({ form, items, index }: IngredientInputProps) {
   const combobox = useCombobox({ onDropdownClose: () => combobox.resetSelectedOption() });
-  const form = useRecipeFormContext();
-
   const [data, setData] = useState(items);
   const [search, setSearch] = useState('');
 

@@ -1,4 +1,4 @@
-import type { RecipeFormValues } from '@context/recipe-form-context';
+import type { RecipeFormValues } from '@components/recipes/recipe-form';
 
 import { NextResponse } from 'next/server';
 import { db } from '@db';
@@ -8,18 +8,11 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     const recipeId = params.id;
     const data: RecipeFormValues = await request.json();
 
-    await db.ingredient.deleteMany({
-      where: { recipeId },
-    });
-
-    await db.instruction.deleteMany({
-      where: { recipeId },
-    });
+    await db.ingredient.deleteMany({ where: { recipeId } });
+    await db.instruction.deleteMany({ where: { recipeId } });
 
     const updateRecipe = await db.recipe.update({
-      where: {
-        id: recipeId,
-      },
+      where: { id: recipeId },
       data: {
         isPublic: data.isPublic,
         name: data.name,
@@ -40,7 +33,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         },
         ingredients: {
           create: data.ingredients.map((ingredient) => ({
-            key: ingredient.key,
+            id: ingredient.id,
             amount: ingredient.amount,
             item: {
               connectOrCreate: {
@@ -56,9 +49,9 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         },
         instructions: {
           create: data.instructions.map((instruction) => ({
+            id: instruction.id,
             position: Number(instruction.position),
             text: instruction.text,
-            key: instruction.key,
           })),
         },
       },

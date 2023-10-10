@@ -10,8 +10,8 @@ datasource db {
 
 model Category {
   id        String   @id @default(cuid())
-  name      String   @unique @db.VarChar(32)
-  slug      String   @unique @db.VarChar(64)
+  name      String   @unique
+  slug      String   @unique
   image     String   @db.Text
 
   recipes   Recipe[]
@@ -23,9 +23,8 @@ model Category {
 }
 
 model Ingredient {
-  id       String @id @default(cuid())
-  amount   String @db.VarChar(32)
-  key      String
+  id       String @id
+  amount   String
 
   item     Item   @relation(fields: [itemId], references: [id])
   itemId   String @map("item_id")
@@ -37,10 +36,9 @@ model Ingredient {
 }
 
 model Instruction {
-  id       String @id @default(cuid())
+  id       String @id
   position Int
   text     String @db.Text
-  key      String
 
   recipe   Recipe @relation(fields: [recipeId], references: [id])
   recipeId String @map("recipe_id")
@@ -50,7 +48,7 @@ model Instruction {
 
 model Item {
   id          String       @id @default(cuid())
-  name        String       @unique @db.VarChar(64)
+  name        String       @unique
 
   ingredients Ingredient[]
 
@@ -62,13 +60,12 @@ model Item {
 
 model Recipe {
   id           String        @id @default(cuid())
-  name         String        @db.VarChar(64)
+  name         String
   description  String?       @db.Text
   isPublic     Boolean       @default(false) @map("is_public")
-  isFeatured   Boolean       @default(false) @map("is_featured")
-  prepTime     String        @map("prep_time") @db.VarChar(32)
-  cookTime     String        @map("cook_time") @db.VarChar(32)
-  yield        String        @db.VarChar(32)
+  prepTime     String        @map("prep_time")
+  cookTime     String        @map("cook_time")
+  yield        String
 
   image        RecipeImage   @relation(fields: [imageId], references: [id])
   imageId      String        @unique @map("image_id")

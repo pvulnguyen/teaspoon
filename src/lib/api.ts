@@ -80,7 +80,6 @@ export async function getRecipe(id: string) {
               name: true,
             },
           },
-          key: true,
         },
       },
       instructions: {
@@ -88,7 +87,6 @@ export async function getRecipe(id: string) {
           id: true,
           position: true,
           text: true,
-          key: true,
         },
         orderBy: {
           position: 'asc',

@@ -1,10 +1,8 @@
 import type { NextRequest } from 'next/server';
-import type { RecipeFormValues } from '@context/recipe-form-context';
+import type { RecipeFormValues } from '@components/recipes/recipe-form';
 
 import { NextResponse } from 'next/server';
-
 import { currentUser } from '@clerk/nextjs';
-
 import { db } from '@db';
 
 export async function POST(request: NextRequest) {
@@ -46,7 +44,7 @@ export async function POST(request: NextRequest) {
         },
         ingredients: {
           create: data.ingredients.map((ingredient) => ({
-            key: ingredient.key,
+            id: ingredient.id,
             amount: ingredient.amount,
             item: {
               connectOrCreate: {
@@ -62,9 +60,9 @@ export async function POST(request: NextRequest) {
         },
         instructions: {
           create: data.instructions.map((instruction) => ({
+            id: instruction.id,
             position: Number(instruction.position),
             text: instruction.text,
-            key: instruction.key,
           })),
         },
       },
